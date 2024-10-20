@@ -4,7 +4,6 @@ export const getEmploye = async (req, res) => {
   console.log(req.params.id);
   //res.send('onteniendo 1')
   try {
-   
     const [rows] = await pool.query(
       "select * from employe where id=?;",
       req.params.id
@@ -14,13 +13,12 @@ export const getEmploye = async (req, res) => {
     res.json(rows[0]);
   } catch (error) {
     res.status(500).json({
-      message: " Algo paso",
+      message: " Algo paso en getemploye",
     });
   }
 };
 export const getAllEmployes = async (req, res) => {
   try {
-    
     const [rows] = await pool.query("SELECT * FROM employe");
     res.json(rows);
   } catch (error) {
@@ -33,7 +31,6 @@ export const createEmploye = async (req, res) => {
   //pool.query('INSERT INTO employe (name,salary) VALUE (?,?),[]')
   //console.log(req.body)
   try {
-    
     const { name, salary } = req.body;
     const [rows] = await pool.query(
       "INSERT INTO employe (name,salary) VALUE (?,?)",
@@ -53,7 +50,6 @@ export const createEmploye = async (req, res) => {
 
 export const deleteEmploye = async (req, res) => {
   try {
-
     const [result] = await pool.query("DELETE FROM employe WHERE id=?;", [
       req.params.id,
     ]);
@@ -71,7 +67,6 @@ export const deleteEmploye = async (req, res) => {
 
 export const updateEmploye = async (req, res) => {
   try {
-
     const { id } = req.params;
     const { name, salary } = req.body;
     const [result] = await pool.query(
