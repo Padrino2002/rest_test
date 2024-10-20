@@ -11,8 +11,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js"
-    "star": "node scr/index.js"
+    "dev": "nodemon src/index.js",
+    "Start": "node scr/index.js"
   },
   "keywords": [],
   "author": "",
