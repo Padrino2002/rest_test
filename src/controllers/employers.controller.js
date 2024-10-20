@@ -4,7 +4,7 @@ export const getEmploye = async (req, res) => {
   console.log(req.params.id);
   //res.send('onteniendo 1')
   try {
-    throw new Error("error en all empleados");
+   
     const [rows] = await pool.query(
       "select * from employe where id=?;",
       req.params.id
@@ -20,7 +20,7 @@ export const getEmploye = async (req, res) => {
 };
 export const getAllEmployes = async (req, res) => {
   try {
-    throw new Error("error en all empleados");
+    
     const [rows] = await pool.query("SELECT * FROM employe");
     res.json(rows);
   } catch (error) {
@@ -33,7 +33,7 @@ export const createEmploye = async (req, res) => {
   //pool.query('INSERT INTO employe (name,salary) VALUE (?,?),[]')
   //console.log(req.body)
   try {
-    throw new Error("errror en crear empleados");
+    
     const { name, salary } = req.body;
     const [rows] = await pool.query(
       "INSERT INTO employe (name,salary) VALUE (?,?)",
@@ -53,7 +53,7 @@ export const createEmploye = async (req, res) => {
 
 export const deleteEmploye = async (req, res) => {
   try {
-    throw new Error("Error en borrar");
+
     const [result] = await pool.query("DELETE FROM employe WHERE id=?;", [
       req.params.id,
     ]);
@@ -71,7 +71,7 @@ export const deleteEmploye = async (req, res) => {
 
 export const updateEmploye = async (req, res) => {
   try {
-    throw new Error (' error en actualizar')
+
     const { id } = req.params;
     const { name, salary } = req.body;
     const [result] = await pool.query(
